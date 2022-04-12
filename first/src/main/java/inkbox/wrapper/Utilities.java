@@ -73,7 +73,7 @@ public class Utilities {
 
 	public static String readPropertyFile(String key) {
 		logger.info("Getting property value of " + key);
-		try (InputStream input = new FileInputStream("staging.properties")) {
+		try (InputStream input = new FileInputStream("config.properties")) {
 
 			Properties prop = new Properties();
 
