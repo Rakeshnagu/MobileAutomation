@@ -1,5 +1,6 @@
 package inkbox.wrapper;
 
+import inkbox.pages.*;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -7,12 +8,6 @@ import org.testng.annotations.BeforeMethod;
 
 import inkbox.modules.HamburgerMenu;
 import inkbox.modules.MenuPage;
-import inkbox.pages.CartPage;
-import inkbox.pages.HomePage;
-import inkbox.pages.LoginSignUpPage;
-import inkbox.pages.ProductDisplayPage;
-import inkbox.pages.ShopProductPage;
-import inkbox.pages.TattooMaker;
 
 public class BaseClass {
 
@@ -24,6 +19,7 @@ public class BaseClass {
 	protected CartPage cartPage;
 	protected HamburgerMenu hamburgerMenu;
 	protected HomePage homePage;
+	protected MysteryBundles mysteryBundles;
 	
 	final static Logger logger = Logger.getLogger(BaseClass.class);
 	
@@ -34,6 +30,16 @@ public class BaseClass {
 	
 	@BeforeMethod
 	public void setup() {
+		menuPage = new MenuPage();
+		loginSignUpPage = new LoginSignUpPage();
+		productDisplayPage = new ProductDisplayPage();
+		shopProductPage = new ShopProductPage();
+		tattooMaker= new TattooMaker();
+		cartPage = new CartPage();
+		hamburgerMenu = new HamburgerMenu();
+		homePage =new HomePage();
+		mysteryBundles = new MysteryBundles();
+
 		DriverManager.startAppium();
 	}
 	

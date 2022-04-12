@@ -1,10 +1,11 @@
 package inkbox.pages;
 
+import inkbox.modules.HamburgerMenu;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
-public class LoginSignUpPage {
+public class LoginSignUpPage extends HamburgerMenu {
 
 	By email = By.xpath("//*[@id='login-email-field' and @form='accountLoginForm_login_home']");
 	By password = By.xpath("//*[@id='login-password-field']");
@@ -29,6 +30,11 @@ public class LoginSignUpPage {
 		Utilities.type(emailSignUp, Utilities.randomString() + "@inkbox.com");
 		Utilities.type(passwordSignUp, Utilities.readPropertyFile("password"));
 		Utilities.javascriptClick(signUpButton);
+	}
+
+	public void loginToInkBox(){
+		navigateToLoginSignUpPage();
+		enterLoginCredential();
 	}
 
 }
