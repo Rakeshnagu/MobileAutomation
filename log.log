@@ -1,0 +1,25 @@
+2022-04-12 00:00:22 INFO  Utilities:75 - Getting property value of url
+2022-04-12 00:00:22 INFO  Utilities:85 - value is https://staging.inkbox.com
+2022-04-12 00:00:40 INFO  Utilities:43 - clicking By.xpath: //div[@id='nav-hamburger']
+2022-04-12 00:00:40 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:00:46 INFO  Utilities:43 - clicking By.xpath: //span[contains(normalize-space(),'Join The Inkfam')]
+2022-04-12 00:00:46 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:00:47 INFO  Utilities:75 - Getting property value of email
+2022-04-12 00:00:47 INFO  Utilities:85 - value is r.nagulapally@getinkbox.com
+2022-04-12 00:00:47 INFO  Utilities:95 - entering data for locator By.xpath: //*[@id='login-email-field' and @form='accountLoginForm_login_home']and value is r.nagulapally@getinkbox.com
+2022-04-12 00:00:47 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:00:57 INFO  Utilities:75 - Getting property value of password
+2022-04-12 00:00:57 INFO  Utilities:85 - value is 9951070133@Rakesh
+2022-04-12 00:00:57 INFO  Utilities:95 - entering data for locator By.xpath: //*[@id='login-password-field']and value is 9951070133@Rakesh
+2022-04-12 00:00:57 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:00:58 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:00:58 INFO  Utilities:50 - clicking using javascript click By.xpath: //*[@id='accountLoginForm_login_home']/div/button
+2022-04-12 00:00:59 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:01:41 INFO  Utilities:75 - Getting property value of url
+2022-04-12 00:01:41 INFO  Utilities:85 - value is https://staging.inkbox.com
+2022-04-12 00:02:05 INFO  Utilities:43 - clicking By.xpath: //div[@id='nav-hamburger']
+2022-04-12 00:02:05 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:02:14 INFO  Utilities:43 - clicking By.xpath: //span[contains(normalize-space(),'Join The Inkfam')]
+2022-04-12 00:02:14 INFO  Utilities:19 - waiting for page to get loaded 
+2022-04-12 00:02:15 INFO  Utilities:43 - clicking By.xpath: //p[contains(@class,'signup-toggle')]/span
+2022-04-12 00:02:15 INFO  Utilities:19 - waiting for page to get loaded 
