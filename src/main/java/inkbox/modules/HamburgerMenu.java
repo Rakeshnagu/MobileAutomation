@@ -16,6 +16,10 @@ public class HamburgerMenu {
 	By saleMysteryBundles = By.xpath("//span[text()='On Sale']/../li/a[@href='/g/mystery-bundles' and text()='Mystery Bundles']");
 	By saleBundles = By.xpath("//span[text()='On Sale']/../li/a[@href='/collections/tattoo-bundles-1' and text()='Bundles']");
 
+	By tattooMarker =By.xpath("//li[@id='menu-L0-tattoo-marker']/a");
+	By tattooMarkerArtistKit = By.xpath("//div[@class='mm-panel mm-panel_opened']//span[text()='Tattoo Marker']/../li/a[text()='Artist Kit']");
+	By tattooMarkerAccessories = By.xpath("//div[@class='mm-panel mm-panel_opened']//span[text()='Tattoo Marker']/../li/a[text()='Accessories']");
+
 	public void navigateToLoginSignUpPage() {
 		Utilities.click(hamburgerMenu);
 		try {
@@ -74,5 +78,38 @@ public class HamburgerMenu {
 			e.printStackTrace();
 		}
 		Utilities.javascriptClick(saleBundles);
+	}
+
+	public void navigateToTattooMakerArtistKit(){
+		Utilities.click(hamburgerMenu);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.click(tattooMarker);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.javascriptClick(tattooMarkerArtistKit);
+	}
+
+
+	public void navigateToTattooMakerAccessories(){
+		Utilities.click(hamburgerMenu);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.click(tattooMarker);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.javascriptClick(tattooMarkerAccessories);
 	}
 }
