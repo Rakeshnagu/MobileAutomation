@@ -20,6 +20,7 @@ public class BaseClass {
 	protected HamburgerMenu hamburgerMenu;
 	protected HomePage homePage;
 	protected MysteryBundles mysteryBundles;
+	protected Bundles bundles;
 	
 	final static Logger logger = Logger.getLogger(BaseClass.class);
 	
@@ -39,6 +40,7 @@ public class BaseClass {
 		hamburgerMenu = new HamburgerMenu();
 		homePage =new HomePage();
 		mysteryBundles = new MysteryBundles();
+		bundles = new Bundles();
 
 		DriverManager.startAppium();
 	}
