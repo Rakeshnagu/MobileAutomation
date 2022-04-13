@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class Utilities {
@@ -68,6 +69,7 @@ public class Utilities {
 
 	public static Integer getListSize(By loc) {
 		checkPageIsReady();
+		System.out.println(DriverManager.getWebdriver().findElements(loc).size());
 		return DriverManager.getWebdriver().findElements(loc).size();
 	}
 
@@ -110,4 +112,5 @@ public class Utilities {
 	public static String randomString() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
+
 }
