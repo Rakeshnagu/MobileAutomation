@@ -91,12 +91,23 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = false, description = "Add mystery bundles to cart as logged in user")
+    @Test(enabled = true, description = "Add mystery bundles to cart as logged in user")
     public void C4921_AddMysteryBundlesToCartForLoggedInUser() {
         loginSignUpPage.loginToInkBox();
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
 
+        homePage.clickCartIcon();
+        cartPage.emptyCart();
+        cartPage.closeCart();
+
         hamburgerMenu.navigateToSalesMysteryBox();
+        mysteryBundles.clickFirstProduct();
+
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
 
     }
 
@@ -172,6 +183,21 @@ public class CartTest extends BaseClass {
         //Check is cart empty after removing product
         Assert.assertTrue(cartPage.checkYouHaveNoItemsInYourCartTextPresent(), "You have no items in your cart not coming in cart");
         Assert.assertEquals(cartPage.totalItemInCart(), 0, "total item in cart is not zero");
+    }
+
+    @Test(enabled = true, description = "Add Giftcard to cart as logged in user")
+    public void C4927_AddGiftcardToCartAsLoggedInUser() {
+        homePage.clickCartIcon();
+        cartPage.emptyCart();
+        cartPage.closeCart();
+
+        hamburgerMenu.navigateToGiftCardPage();
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
     }
 
 }
