@@ -74,13 +74,7 @@ public class CartTest extends BaseClass {
 
     @Test(enabled = true, description = "Add free hand tattoo to cart from tattoo maker menu for logged in user")
     public void C4925_AddFreehandInkToCartAsLoggedInUser() {
-        menuPage = new MenuPage();
-        tattooMaker = new TattooMaker();
-        cartPage = new CartPage();
-        loginSignUpPage = new LoginSignUpPage();
-        homePage = new HomePage();
-
-        loginSignUpPage.loginToInkBox();
+            loginSignUpPage.loginToInkBox();
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
 
         menuPage.clickTattooMaker();
@@ -199,5 +193,36 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
 
     }
+
+    @Test(enabled = true, description = "Verify cart is getting empty")
+    public void C4918_EmptyCart() {
+        hamburgerMenu.navigateToGiftCardPage();
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+        cartPage.emptyCart();
+        Assert.assertEquals(cartPage.getCartItemCount(), 0, "Cart is not empty");
+
+        cartPage.closeCart();
+        loginSignUpPage.loginToInkBox();
+        Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
+
+        menuPage.clickTattooMaker();
+        tattooMaker.addProductToCart();
+        productName = "Freehand Tattoo Marker";
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertTrue(cartPage.getCartItemCount()>0, "Cart should not be  empty");
+
+        cartPage.emptyCart();
+        Assert.assertEquals(cartPage.getCartItemCount(), 0, "Cart is not empty");
+
+
+    }
+
+
+
+
+
 
 }
