@@ -59,9 +59,20 @@ public class CartPage {
     }
 
     public void emptyCart() {
-        for (int i = Utilities.getListSize(removeItemFromCart); i > 0; i--) {
-            DriverManager.getWebdriver().findElements(removeItemFromCart).get(i - 1).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        System.out.println("Number of product in cart " +  Utilities.getListSize(removeItemFromCart));
+        /*for (int i = Utilities.getListSize(removeItemFromCart); i > 0; i--) {
+            DriverManager.getWebdriver().findElements(removeItemFromCart).get(i - 1).click();
+        }*/
+        while(Utilities.getListSize(removeItemFromCart)!=0) {
+            DriverManager.getWebdriver().findElements(removeItemFromCart).get(0).click();
+        }
+        System.out.println("Number of product in cart " +  Utilities.getListSize(removeItemFromCart));
+
     }
 
     public void closeCart(){
