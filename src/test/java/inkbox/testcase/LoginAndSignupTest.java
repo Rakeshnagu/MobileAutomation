@@ -49,6 +49,8 @@ public class LoginAndSignupTest extends BaseClass {
     @Test(enabled = true, description = "Login with google")
     public void C4960_LoginWithGoogle(){
         hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.clickSignUp();
+        loginSignUpPage.clickContinueWithGoogle();
 
     }
 
