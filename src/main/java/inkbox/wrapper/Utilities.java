@@ -113,4 +113,21 @@ public class Utilities {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 
+	public static String getCurrentUrl() {
+		checkPageIsReady();
+		String url = DriverManager.getWebdriver().getCurrentUrl();
+		System.out.println(url);
+		return url;
+	}
+
+
+	public static void ScrollDown() {
+		JavascriptExecutor jse = (JavascriptExecutor) DriverManager.getWebdriver();
+		jse.executeScript("window.scrollBy(0,7000)");
+	}
+
+	public static void ScrollTop() {
+		JavascriptExecutor jse = (JavascriptExecutor) DriverManager.getWebdriver();
+		jse.executeScript("window.scrollBy(0,-7500)");
+	}
 }

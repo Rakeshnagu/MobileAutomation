@@ -1,5 +1,7 @@
 package inkbox.wrapper;
 
+import inkbox.modules.Geolocation;
+import inkbox.modules.SearchProduct;
 import inkbox.pages.*;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
@@ -8,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 
 import inkbox.modules.HamburgerMenu;
 import inkbox.modules.MenuPage;
+import org.testng.annotations.Parameters;
 
 public class BaseClass {
 
@@ -21,6 +24,8 @@ public class BaseClass {
 	protected HomePage homePage;
 	protected MysteryBundles mysteryBundles;
 	protected Bundles bundles;
+	protected SearchProduct search;
+	protected Geolocation geolocation;
 	
 	final static Logger logger = Logger.getLogger(BaseClass.class);
 	
@@ -28,9 +33,10 @@ public class BaseClass {
 	public void beforeClass() {
 		
 	}
-	
+
+	@Parameters({"geoLocation" })
 	@BeforeMethod
-	public void setup() {
+	public void setup(String geoLocation)  {
 		menuPage = new MenuPage();
 		loginSignUpPage = new LoginSignUpPage();
 		productDisplayPage = new ProductDisplayPage();
@@ -41,8 +47,11 @@ public class BaseClass {
 		homePage =new HomePage();
 		mysteryBundles = new MysteryBundles();
 		bundles = new Bundles();
+		search = new SearchProduct();
+		geolocation = new Geolocation();
 
 		DriverManager.startAppium();
+		geolocation.SelectGeoLocation(geoLocation);
 	}
 	
 	@AfterMethod

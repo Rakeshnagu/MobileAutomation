@@ -22,9 +22,21 @@ public class CartPage {
     By sezzlePayment = By.xpath("//img[@alt='Sezzle']");
     By afterPayPayment = By.xpath("//img[@alt='AfterPay']");
 
-    public String getProductName() {
-        return Utilities.getText(productName);
-    }
+    By cartFirstProductValue = By.xpath("//div[contains(@class,'cart-contents')]//div[@class='font-bold']");
+    By cartSubtotalValue = By.xpath("//span[@id='cart-subtotal-value']");
+    By cartTotalValue = By.xpath("//span[@class='cart-total-value']");
+
+    By continueToCheckout = By.xpath("//a[@id='cart-checkout-button-main']");
+
+    public String getCartFirstProductValue() {return Utilities.getText(cartFirstProductValue);}
+
+    public String getCartSubtotalValue() {return Utilities.getText(cartSubtotalValue);}
+
+    public String getCartTotalValue() {return Utilities.getText(cartTotalValue);}
+
+    public String getProductName() { return Utilities.getText(productName);}
+
+    public void clickContinueToCheckout() { Utilities.click(continueToCheckout);}
 
     public int getCartItemCount() {
         return Utilities.getListSize(cartItemCount);

@@ -18,6 +18,15 @@ public class LoginSignUpPage extends HamburgerMenu {
     By errorEmailAlreadyExist = By.xpath("//li[normalize-space()='The email has already been taken.']");
     By errorCredentialDoNotMatch = By.xpath("//li[normalize-space()='These credentials do not match our records.']");
 
+    //Continue with Google
+    By continueWithGoogle = By.xpath("(//button[@class='popup-form-button flex w-full gap-2 items-center justify-center border border-2 border-gray-200 rounded px-4 py-3 font-bold'][normalize-space()='Continue with Google'])[1]");
+    By emailID_ContinueWithGoogle = By.xpath("//input[@type='email']");
+    By Next_button = By.xpath("//button/span[text()='Next']");
+    By password_ContinueWithGoogle = By.xpath("//input[@type='password']");
+
+    //home screen login & signup
+    By loginSignupPopUp = By.xpath("//div[@id='pop_up_container']");
+
     public void enterLoginCredential() {
         Utilities.type(email, Utilities.readPropertyFile("email"));
         Utilities.type(password, Utilities.readPropertyFile("password"));
@@ -58,4 +67,16 @@ public class LoginSignUpPage extends HamburgerMenu {
     public boolean errorCredentialDoNotMatch() {
         return Utilities.getListSize(errorCredentialDoNotMatch) > 0 ? true : false;
     }
+
+    public void clickContinueWithGoogle() {
+        Utilities.click(continueWithGoogle);
+        Utilities.type(emailID_ContinueWithGoogle, Utilities.readPropertyFile("gmail_facebookpassword"));
+        //   loginPage.EnterGoogle_MailID(LaunchDriver.getGmail_Facebook_Username());
+        // loginPage.EnterGoogle_Password(LaunchDriver.gmail_facbook_password);
+    }
+
+    public boolean checkSignUpPopUpAppearing() {
+        return Utilities.getListSize(loginSignupPopUp) > 0 ? true : false;
+    }
+
 }

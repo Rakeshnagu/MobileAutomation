@@ -2,6 +2,7 @@ package inkbox.testcase;
 
 import inkbox.pages.*;
 import inkbox.wrapper.DriverManager;
+import inkbox.wrapper.Utilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -221,8 +222,44 @@ public class CartTest extends BaseClass {
     }
 
 
+    @Test(enabled = true, description = "Price validation")
+    public void C4914_PriceValidation() {
+        String price;
+        menuPage.clickShopMenu();
+        price = shopProductPage.getFirstProductPrice();
+        shopProductPage.clickFirstProduct();
+
+        Assert.assertEquals(productDisplayPage.getProductPrice(),price, "price of item not matching from shop page and product page");
+
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getCartFirstProductValue(), price, "price of product is different in cart from product page");
+        Assert.assertEquals(cartPage.getCartSubtotalValue(), price, "price of product is different in cart from product page");
+        Assert.assertEquals(cartPage.getCartTotalValue(), price, "price of product is different in cart from product page");
 
 
+    }
+
+    @Test(enabled = true, description = "Price validation")
+    public void C4917_AddToCartVerifyingSubTotalTotalAndContinueToCheckout() {
+        String price;
+        menuPage.clickShopMenu();
+        price = shopProductPage.getFirstProductPrice();
+        shopProductPage.clickFirstProduct();
+
+        Assert.assertEquals(productDisplayPage.getProductPrice(),price, "price of item not matching from shop page and product page");
+
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getCartFirstProductValue(), price, "price of product is different in cart from product page");
+        Assert.assertEquals(cartPage.getCartSubtotalValue(), price, "price of product is different in cart from product page");
+        Assert.assertEquals(cartPage.getCartTotalValue(), price, "price of product is different in cart from product page");
+
+        cartPage.clickContinueToCheckout();
+
+        Assert.assertTrue(Utilities.getCurrentUrl().contains("checkouts"),"After click on ContinueToCheckout button, it's redirecting to wrong page");
+
+    }
 
 
 }
