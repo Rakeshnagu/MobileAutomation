@@ -261,5 +261,27 @@ public class CartTest extends BaseClass {
 
     }
 
+    @Test(enabled = true, description = "Increment items in cart")
+    public void C4993_IncrementItemsInCart() {
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+        productDisplayPage.addProductToCart();
+
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+
+        Assert.assertEquals(cartPage.totalItemInCart(),5,"product count has not increased");
+
+        cartPage.closeCart();
+        menuPage.clickShopMenu();
+        shopProductPage.clickProduct(1);
+        productDisplayPage.addProductToCart();
+        Assert.assertEquals(cartPage.totalItemInCart(),6,"product count has not increased");
+
+
+    }
+
 
 }

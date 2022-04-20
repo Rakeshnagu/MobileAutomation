@@ -130,4 +130,12 @@ public class Utilities {
 		JavascriptExecutor jse = (JavascriptExecutor) DriverManager.getWebdriver();
 		jse.executeScript("window.scrollBy(0,-7500)");
 	}
+
+	public static void sleep(int timeout){
+		try {
+			Thread.sleep(timeout);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }

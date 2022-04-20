@@ -26,6 +26,10 @@ public class CartPage {
     By cartSubtotalValue = By.xpath("//span[@id='cart-subtotal-value']");
     By cartTotalValue = By.xpath("//span[@class='cart-total-value']");
 
+    By increaseProductCount = By.xpath("//button[@id='cart-item-add']");
+    By decreaseProductCount = By.xpath("//button[@id='cart-item-sub']");
+    By productQuantity = By.xpath("//button[@id='cart-item-sub']/../div");
+
     By continueToCheckout = By.xpath("//a[@id='cart-checkout-button-main']");
 
     public String getCartFirstProductValue() {return Utilities.getText(cartFirstProductValue);}
@@ -89,5 +93,9 @@ public class CartPage {
 
     public void closeCart(){
         Utilities.click(closeCart);
+    }
+
+    public void increaseProductCount(){
+        Utilities.click(increaseProductCount);
     }
 }
