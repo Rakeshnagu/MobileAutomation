@@ -12,6 +12,8 @@ import inkbox.modules.HamburgerMenu;
 import inkbox.modules.MenuPage;
 import org.testng.annotations.Parameters;
 
+import java.lang.reflect.Method;
+
 public class BaseClass {
 
 	protected MenuPage menuPage;
@@ -36,7 +38,7 @@ public class BaseClass {
 
 	@Parameters({"geoLocation" })
 	@BeforeMethod
-	public void setup(String geoLocation)  {
+	public void setup(String geoLocation, Method m)  {
 		menuPage = new MenuPage();
 		loginSignUpPage = new LoginSignUpPage();
 		productDisplayPage = new ProductDisplayPage();
@@ -52,6 +54,7 @@ public class BaseClass {
 
 		DriverManager.startAppium();
 		geolocation.SelectGeoLocation(geoLocation);
+		System.out.println(m.getName());
 	}
 	
 	@AfterMethod

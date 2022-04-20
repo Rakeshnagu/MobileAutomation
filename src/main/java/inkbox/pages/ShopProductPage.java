@@ -14,6 +14,9 @@ public class ShopProductPage {
         Utilities.click(productList, 0);
     }
 
+    public void clickProduct(int productposition) {
+        Utilities.click(productList, productposition);
+    }
     public String getFirstProductPrice() {
         return Utilities.getText(productPriceList);
     }
