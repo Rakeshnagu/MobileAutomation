@@ -97,5 +97,11 @@ public class CartPage {
 
     public void increaseProductCount(){
         Utilities.click(increaseProductCount);
+        Utilities.sleep(1000);
+    }
+
+    public void decreaseProductCount(){
+        Utilities.click(decreaseProductCount);
+        Utilities.sleep(1000);
     }
 }

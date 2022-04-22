@@ -12,7 +12,7 @@ public class WishListTest extends BaseClass {
         menuPage.clickShopMenu();
         shopProductPage.addProductToFavouritesList();
 
-        Assert.assertTrue(!loginSignUpPage.checkSignUpPopUpAppearing(), "SignUp popup is not displaying after clicking Favourites");
+        Assert.assertTrue(loginSignUpPage.checkSignUpPopUpAppearing(), "SignUp popup is not displaying after clicking Favourites");
 
     }
 

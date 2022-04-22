@@ -7,6 +7,7 @@ import inkbox.wrapper.Utilities;
 
 public class LoginSignUpPage extends HamburgerMenu {
 
+    //locator
     By email = By.xpath("//*[@id='login-email-field' and @form='accountLoginForm_login_home']");
     By password = By.xpath("//*[@id='login-password-field']");
     By loginBtn = By.xpath("//*[@id='accountLoginForm_login_home']/div/button");
@@ -27,6 +28,8 @@ public class LoginSignUpPage extends HamburgerMenu {
     //home screen login & signup
     By loginSignupPopUp = By.xpath("//div[@id='pop_up_container']");
 
+
+    //functions
     public void enterLoginCredential() {
         Utilities.type(email, Utilities.readPropertyFile("email"));
         Utilities.type(password, Utilities.readPropertyFile("password"));

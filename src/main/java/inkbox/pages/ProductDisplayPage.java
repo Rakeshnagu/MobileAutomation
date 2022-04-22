@@ -12,6 +12,7 @@ public class ProductDisplayPage {
 
 	public void addProductToCart() {
 		Utilities.javascriptClick(addToCart);
+		Utilities.sleep(1000);
 	}
 
 	public String getProductName() {
