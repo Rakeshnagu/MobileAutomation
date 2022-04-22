@@ -15,6 +15,7 @@ import org.testng.annotations.Parameters;
 import java.lang.reflect.Method;
 
 public class BaseClass {
+	final static Logger logger = Logger.getLogger(BaseClass.class);
 
 	protected MenuPage menuPage;
 	protected LoginSignUpPage loginSignUpPage;
@@ -28,8 +29,6 @@ public class BaseClass {
 	protected Bundles bundles;
 	protected SearchProduct search;
 	protected Geolocation geolocation;
-	
-	final static Logger logger = Logger.getLogger(BaseClass.class);
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -52,9 +51,12 @@ public class BaseClass {
 		search = new SearchProduct();
 		geolocation = new Geolocation();
 
+		logger.info("*********************************************************************");
+		logger.info("Running test case : " + m.getName());
+		logger.info("*********************************************************************");
+
 		DriverManager.startAppium();
 		geolocation.SelectGeoLocation(geoLocation);
-		System.out.println(m.getName());
 	}
 	
 	@AfterMethod

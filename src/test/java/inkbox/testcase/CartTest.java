@@ -2,6 +2,7 @@ package inkbox.testcase;
 
 import inkbox.pages.*;
 import inkbox.wrapper.DriverManager;
+import inkbox.wrapper.RetryListner;
 import inkbox.wrapper.Utilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -280,6 +281,56 @@ public class CartTest extends BaseClass {
         productDisplayPage.addProductToCart();
         Assert.assertEquals(cartPage.totalItemInCart(),6,"product count has not increased");
 
+    }
+    @Test(enabled = true, description = "Decrement items in cart")
+    public void C4994_DecrementItemsInCart() {
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+        productDisplayPage.addProductToCart();
+
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+        cartPage.increaseProductCount();
+
+        Assert.assertEquals(cartPage.totalItemInCart(),5,"product count has not increased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),4,"product count has not decreased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),3,"product count has not decreased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),2,"product count has not decreased");
+
+        cartPage.closeCart();
+        menuPage.clickShopMenu();
+        shopProductPage.clickProduct(1);
+        productDisplayPage.addProductToCart();
+        Assert.assertEquals(cartPage.totalItemInCart(),3,"product count has not increased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),2,"product count has not decreased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),1,"product count has not decreased");
+
+        cartPage.decreaseProductCount();
+        Assert.assertEquals(cartPage.totalItemInCart(),0,"product count has not decreased");
+    }
+
+    @Test(retryAnalyzer= RetryListner.class, enabled = true, description = "C4992 Add products to cart from wishlist")
+    public void C4992_AddProductsToCartFromWishlist(){
+
+        hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.enterLoginCredential();
+
+        Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
+        menuPage.clickShopMenu();
+        shopProductPage.addProductToFavouritesList();
+
+        Assert.assertTrue(loginSignUpPage.checkSignUpPopUpAppearing(), "SignUp popup is not displaying after clicking Favourites");
 
     }
 
