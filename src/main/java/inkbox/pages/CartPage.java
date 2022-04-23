@@ -7,7 +7,7 @@ import inkbox.wrapper.Utilities;
 
 public class CartPage {
 
-    By productName = By.xpath("//div[contains(@class,'cart-contents')]/div/div/div/div[contains(@class,'cart-itemName')]");
+    By productName = By.xpath("//div[contains(@class,'cart-contents')]//div[contains(@class,'cart-itemName')]");
     By cartItemCount = By.xpath("//div[contains(@class,'cart-item flex')]");
 
     By youHaveNoItemsInYourCartText = By.xpath("//h3[normalize-space()='You have no items in your cart']");

@@ -1,15 +1,12 @@
 package inkbox.wrapper;
 
-import inkbox.modules.Geolocation;
-import inkbox.modules.SearchProduct;
+import inkbox.modules.*;
 import inkbox.pages.*;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-import inkbox.modules.HamburgerMenu;
-import inkbox.modules.MenuPage;
 import org.testng.annotations.Parameters;
 
 import java.lang.reflect.Method;
@@ -29,7 +26,8 @@ public class BaseClass {
 	protected Bundles bundles;
 	protected SearchProduct search;
 	protected Geolocation geolocation;
-	
+	protected WishList wishList;
+
 	@BeforeClass
 	public void beforeClass() {
 		
@@ -50,6 +48,7 @@ public class BaseClass {
 		bundles = new Bundles();
 		search = new SearchProduct();
 		geolocation = new Geolocation();
+		wishList = new WishList();
 
 		logger.info("*********************************************************************");
 		logger.info("Running test case : " + m.getName());

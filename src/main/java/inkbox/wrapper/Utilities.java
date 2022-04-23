@@ -67,6 +67,14 @@ public class Utilities {
 		return text;
 	}
 
+	public static String getText(By loc, int index) {
+		checkPageIsReady();
+		logger.info("Getting text for locator " + loc);
+		String text = DriverManager.getWebdriver().findElements(loc).get(index).getText();
+		logger.info("text is " + text);
+		return text;
+	}
+
 	public static Integer getListSize(By loc) {
 		checkPageIsReady();
 		System.out.println(DriverManager.getWebdriver().findElements(loc).size());
