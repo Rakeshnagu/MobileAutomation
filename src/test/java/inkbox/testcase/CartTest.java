@@ -320,17 +320,27 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.totalItemInCart(),0,"product count has not decreased");
     }
 
-    @Test(retryAnalyzer= RetryListner.class, enabled = true, description = "C4992 Add products to cart from wishlist")
+    @Test(enabled = true, description = "C4992 Add products to cart from wishlist")
     public void C4992_AddProductsToCartFromWishlist(){
 
         hamburgerMenu.navigateToLoginSignUpPage();
         loginSignUpPage.enterLoginCredential();
-
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
-        menuPage.clickShopMenu();
-        shopProductPage.addProductToFavouritesList();
 
-        Assert.assertTrue(loginSignUpPage.checkSignUpPopUpAppearing(), "SignUp popup is not displaying after clicking Favourites");
+        homePage.clickWishListIcon();
+
+        if(!wishList.checkProductExistInWistList()){
+            menuPage.clickShopMenu();
+            shopProductPage.addProductToFavouritesList();
+            homePage.clickWishListIcon();
+        }
+
+        String productName = wishList.getProductName(0);
+        System.out.println(productName);
+        wishList.addProductToCart(0);
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
 
     }
 
