@@ -1,11 +1,14 @@
 package inkbox.pages;
 
 import inkbox.modules.HamburgerMenu;
+import inkbox.modules.WishList;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
 public class LoginSignUpPage extends HamburgerMenu {
+    final static Logger logger = Logger.getLogger(LoginSignUpPage.class);
 
     //locator
     By email = By.xpath("//*[@id='login-email-field' and @form='accountLoginForm_login_home']");

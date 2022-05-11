@@ -3,6 +3,7 @@ package inkbox.wrapper;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Reporter;
 
 public class Utilities {
 
@@ -81,9 +83,15 @@ public class Utilities {
 		return DriverManager.getWebdriver().findElements(loc).size();
 	}
 
+	public static List<WebElement> webElementList(By loc) {
+		checkPageIsReady();
+		return DriverManager.getWebdriver().findElements(loc);
+	}
+
 	public static String readPropertyFile(String key) {
 		logger.info("Getting property value of " + key);
-		try (InputStream input = new FileInputStream("config.properties")) {
+		String env = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("environment");
+		try (InputStream input = new FileInputStream("src/test/resources/" + env + "_config.properties")) {
 
 			Properties prop = new Properties();
 

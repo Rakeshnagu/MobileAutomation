@@ -1,22 +1,21 @@
 package inkbox.testcase;
 
 import inkbox.pages.*;
-import inkbox.wrapper.DriverManager;
-import inkbox.wrapper.RetryListner;
-import inkbox.wrapper.Utilities;
+import inkbox.wrapper.*;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import inkbox.modules.HamburgerMenu;
 import inkbox.modules.MenuPage;
-import inkbox.wrapper.BaseClass;
 
+@Listeners({AllureListener.class})
 public class CartTest extends BaseClass {
 
     String productName;
 
     @Test(enabled = true, description = "Adding product to cart from product display page")
-    public void T18406_AddingProductsToCartFromPdpPage() {
+    public void C4913_AddingProductsToCartFromPdpPage() {
         menuPage.clickShopMenu();
         shopProductPage.clickFirstProduct();
 
@@ -60,7 +59,7 @@ public class CartTest extends BaseClass {
     }
 
     @Test(enabled = true, description = "Adding gift card to cart ")
-    public void C4928_AddGiftcardToCart() {
+    public void C4928_AddGiftCardToCart() {
         hamburgerMenu = new HamburgerMenu();
         productDisplayPage = new ProductDisplayPage();
         cartPage = new CartPage();
@@ -241,7 +240,7 @@ public class CartTest extends BaseClass {
 
     }
 
-    @Test(enabled = true, description = "Price validation")
+    @Test(enabled = true, description = "verifying SubTotal,Total and Continue_To_Checkout visibility after product added to cart")
     public void C4917_AddToCartVerifyingSubTotalTotalAndContinueToCheckout() {
         String price;
         menuPage.clickShopMenu();

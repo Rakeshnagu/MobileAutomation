@@ -1,10 +1,13 @@
 package inkbox.pages;
 
+import inkbox.modules.WishList;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
 public class ProductDisplayPage {
+	final static Logger logger = Logger.getLogger(ProductDisplayPage.class);
 
 	By addToCart = By.xpath("//button[contains(@class,'btn btn-primary f')]");
 	By productName = By.xpath("//h3[contains(@class,'font-heading f')]");

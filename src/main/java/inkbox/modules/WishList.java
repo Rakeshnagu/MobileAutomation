@@ -1,9 +1,12 @@
 package inkbox.modules;
 
 import inkbox.wrapper.Utilities;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 public class WishList {
+
+    final static Logger logger = Logger.getLogger(WishList.class);
 
     By productList = By.xpath("//button[@type='submit']");
 

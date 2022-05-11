@@ -14,8 +14,8 @@ public class LoginAndSignupTest extends BaseClass {
 
     @Test(enabled = true, description = "Validating login feature")
     public void C4878_Loginfeature() {
-        hamburgerMenu.navigateToLoginSignUpPage();
-        loginSignUpPage.enterLoginCredential();
+            hamburgerMenu.navigateToLoginSignUpPage();
+            loginSignUpPage.enterLoginCredential();
 
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
     }
@@ -54,5 +54,12 @@ public class LoginAndSignupTest extends BaseClass {
 
     }
 
+    @Test(enabled = true, description = "Login with existing user")
+    public void C4959_LoginWithExistingUser() {
+        hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.enterLoginCredential();
+
+        Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
+    }
 
 }
