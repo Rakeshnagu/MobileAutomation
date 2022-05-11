@@ -1,11 +1,13 @@
 package inkbox.pages;
 
 import inkbox.wrapper.DriverManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
 public class CartPage {
+    final static Logger logger = Logger.getLogger(CartPage.class);
 
     By productName = By.xpath("//div[contains(@class,'cart-contents')]//div[contains(@class,'cart-itemName')]");
     By cartItemCount = By.xpath("//div[contains(@class,'cart-item flex')]");

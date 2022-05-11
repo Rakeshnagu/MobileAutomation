@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -44,5 +46,19 @@ public class DriverManager {
 
 	public static WebDriver getWebdriver() {
 		return driver;
+	}
+
+
+	public static void startAppiumServerProgramically(){
+		AppiumDriverLocalService appiumService;
+		AppiumServiceBuilder builder = new AppiumServiceBuilder();
+		builder.usingAnyFreePort();
+		builder.withIPAddress("127.0.0.1");
+		appiumService = AppiumDriverLocalService.buildService(builder);
+		appiumService.clearOutPutStreams();
+		appiumService.start();
+
+
+
 	}
 }

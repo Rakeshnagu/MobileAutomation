@@ -1,10 +1,13 @@
 package inkbox.pages;
 
+import inkbox.modules.WishList;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
 public class ShopProductPage {
+    final static Logger logger = Logger.getLogger(ShopProductPage.class);
 
     By productList = By.xpath("//li[@class='ais-Hits-item']/a"); // list containing all product
     By productPriceList = By.xpath("//li[@class='ais-Hits-item']/a//div[contains(@class,'productCard-price')]");
@@ -22,5 +25,6 @@ public class ShopProductPage {
     }
 
     public void addProductToFavouritesList() { Utilities.click(favouritesList, 0); }
+    public void addProductToFavouritesList(int index) { Utilities.click(favouritesList, index); }
 
 }

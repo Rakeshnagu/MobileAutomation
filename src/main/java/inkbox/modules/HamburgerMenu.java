@@ -1,10 +1,13 @@
 package inkbox.modules;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import inkbox.wrapper.Utilities;
 
 public class HamburgerMenu {
+
+	final static Logger logger = Logger.getLogger(HamburgerMenu.class);
 
 	By hamburgerMenu = By.xpath("//div[@id='nav-hamburger']");
 	By joinInkfam = By.xpath("//span[contains(normalize-space(),'Join The Inkfam')]");
