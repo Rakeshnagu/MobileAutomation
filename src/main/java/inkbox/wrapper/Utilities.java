@@ -3,13 +3,12 @@ package inkbox.wrapper;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Properties;
-import java.util.UUID;
+import java.util.*;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
@@ -53,6 +52,13 @@ public class Utilities {
 		logger.info("clicking using javascript click " + loc);
 		JavascriptExecutor js = (JavascriptExecutor) DriverManager.getWebdriver();
 		js.executeScript("arguments[0].click();", DriverManager.getWebdriver().findElement(loc));
+	}
+
+	public static void javascriptClick(WebElement element) {
+		checkPageIsReady();
+		logger.info("clicking using javascript click " + element);
+		JavascriptExecutor js = (JavascriptExecutor) DriverManager.getWebdriver();
+		js.executeScript("arguments[0].click();", element);
 	}
 
 	public static void click(By loc, Integer index) {
@@ -154,4 +160,47 @@ public class Utilities {
 			e.printStackTrace();
 		}
 	}
+
+
+	public static void SwitchToChildWindow() {
+		checkPageIsReady();
+		String parentWindow = DriverManager.getWebdriver().getWindowHandle();
+		Set<String> handles = DriverManager.getWebdriver().getWindowHandles();
+		for (String windowHandle : handles) {
+			if (!windowHandle.equals(parentWindow)) {
+				DriverManager.getWebdriver().switchTo().window(windowHandle);
+				checkPageIsReady();
+				DriverManager.getWebdriver().close(); //closing child window
+				DriverManager.getWebdriver().switchTo().window(parentWindow); //control to parent window
+			}
+		}
+	}
+
+	public static void SwitchToParent() {
+
+		//controlHelper.SwitchToParent();
+		String parent = DriverManager.getWebdriver().getWindowHandle();
+		Set<String> s =  DriverManager.getWebdriver().getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1 = s.iterator();
+
+		while (I1.hasNext()) {
+
+			String child_window = I1.next();
+
+			if (!parent.equals(child_window)) {
+				DriverManager.getWebdriver().switchTo().window(child_window);
+
+				DriverManager.getWebdriver().close();
+			}
+		}
+		// switch to the parent window
+		DriverManager.getWebdriver().switchTo().window(parent);
+	}
+
+
+
+
+
 }

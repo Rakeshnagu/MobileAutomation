@@ -49,5 +49,28 @@ public class FooterTest extends BaseClass {
         footer.validate_EmailField_Footer();
     }
 
+    @Test(enabled = false, retryAnalyzer = RetryListener.class, description = "validate social media partnership Inbox features directing towards location(instagram ,facebook etc..,)")
+    public void C21944_SocialMedia_Validation()  {
+        footer.Validate_SocialMedia_Footer();
+    }
+
+    @Test(retryAnalyzer = RetryListener.class, description = "Validate and click on text \" More Questions ? Visit the Help & FAQ center navigate to required page")
+    public void C21951_ValidateTextMoreQuestions(){
+        footer.checkMoreQuestionExist();
+        footer.navigateToHelpAndFaq();
+    }
+
+    @Test(retryAnalyzer = RetryListener.class, description = "validate and click (+) sign to verify the answer below with (-) sign.")
+    public void C21950_VerifyAnswer(){
+        footer.validateFaQ();
+    }
+
+    @Test(retryAnalyzer = RetryListener.class, description = "validate and click currencies to change from one to each other in the application")
+    public void C21947_ValidateAndClickCurrenciesToChangeFromOneToEachOther(){
+        geolocation.validateCurrencyGettingSelected();
+    }
+
+
+
 
 }
