@@ -31,6 +31,7 @@ public class CartPage {
     By increaseProductCount = By.xpath("//button[@id='cart-item-add']");
     By decreaseProductCount = By.xpath("//button[@id='cart-item-sub']");
     By productQuantity = By.xpath("//button[@id='cart-item-sub']/../div");
+    By productSize = By.xpath("//div[contains(@class,'cart-itemName')]/../div[contains(@class,'base')]");
 
     By continueToCheckout = By.xpath("//a[@id='cart-checkout-button-main']");
 
@@ -41,6 +42,8 @@ public class CartPage {
     public String getCartTotalValue() {return Utilities.getText(cartTotalValue);}
 
     public String getProductName() { return Utilities.getText(productName);}
+
+    public String getProductSize() { return DriverManager.getWebdriver().findElements(productSize).get(1).getText();}
 
     public void clickContinueToCheckout() { Utilities.click(continueToCheckout);}
 

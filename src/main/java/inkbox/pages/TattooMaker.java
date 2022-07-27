@@ -10,7 +10,7 @@ public class TattooMaker {
 	final static Logger logger = Logger.getLogger(TattooMaker.class);
 
 	By addToCart = By.xpath("//button[contains(@onclick,'addProductToCart_0')]");
-	By tracingPenProduct = By.xpath("//p[text()='Tracing Pen']/../img");
+	By tracingPenProduct = By.xpath("//div[normalize-space()='Tracing Pen']/..");
 
 	public void addProductToCart() {
 		logger.info("Adding product to cart");
@@ -19,6 +19,7 @@ public class TattooMaker {
 
 	public void clickTracingPenProduct() {
 		logger.info("clicking tracing pen product");
-		Utilities.click(tracingPenProduct);
+		Utilities.javascriptClick(tracingPenProduct);
+		Utilities.checkPageIsReady();
 	}
 }

@@ -123,6 +123,7 @@ public class Utilities {
 
 	public static boolean elementExist(By loc) {
 		checkPageIsReady();
+		System.out.println( DriverManager.getWebdriver().findElements(loc).size());
 		return DriverManager.getWebdriver().findElements(loc).size() > 0 ? true : false;
 	}
 
@@ -199,6 +200,10 @@ public class Utilities {
 		DriverManager.getWebdriver().switchTo().window(parent);
 	}
 
+
+	public static void navigateBack(){
+		DriverManager.getWebdriver().navigate().back();
+	}
 
 
 

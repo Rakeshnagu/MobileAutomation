@@ -37,6 +37,7 @@ public class LoginSignUpPage extends HamburgerMenu {
         Utilities.type(email, Utilities.readPropertyFile("email"));
         Utilities.type(password, Utilities.readPropertyFile("password"));
         Utilities.javascriptClick(loginBtn);
+        Utilities.checkPageIsReady();
     }
 
     public void clickSignUp() {

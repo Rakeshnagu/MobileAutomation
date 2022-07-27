@@ -1,6 +1,7 @@
 package inkbox.testcase;
 
 import inkbox.wrapper.BaseClass;
+import inkbox.wrapper.DriverManager;
 import inkbox.wrapper.RetryListener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ public class FooterTest extends BaseClass {
     }
 
     @Test(retryAnalyzer = RetryListener.class, enabled = true, description = "Validate about Features under the \"About INKBOX\" whether they navigate to required page or not")
-    public void Validate_About_INKBOX_InFooter() {
+    public void C21941_Validate_About_INKBOX_InFooter() {
         footer.Validate_About_Linkbox_Footer();
     }
 
@@ -70,7 +71,21 @@ public class FooterTest extends BaseClass {
         geolocation.validateCurrencyGettingSelected();
     }
 
+    @Test(retryAnalyzer = RetryListener.class, description = "Add Tracking and Update Contact Us Link")
+    public void C4887_AddTrackingAndUpdateContactUsLink(){
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(footer.checkTrackingExist(), "Tracking Link is not present in footer");
+        softAssert.assertTrue(footer.checkContactUsExist(),"Contact us Link is not present");
+        softAssert.assertTrue(footer.validateTracking(),"Tracking link is not edirecting to correct page");
+        DriverManager.getWebdriver().navigate().back();
+        softAssert.assertTrue(footer.validateContactUs(),"Contact us link not redirected to correct page");
+        softAssert.assertAll();
+    }
 
 
+    @Test(retryAnalyzer = RetryListener.class, description = "Validate the Text \"Frequently asked Questions\" and bottom with Users questions with sign (+)")
+    public void C21949_Validate_TextFrequentlyAskedQuestions(){
+        Assert.assertTrue(footer.checkFrequentlyAskedQuestionsExist(),"Frequently asked question heading missing");
+    }
 
 }
