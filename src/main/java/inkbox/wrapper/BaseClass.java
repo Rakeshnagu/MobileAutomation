@@ -29,6 +29,9 @@ public class BaseClass {
     protected Geolocation geolocation;
     protected WishList wishList;
     protected Footer footer;
+    protected ProfilePage profilePage;
+    protected Quiz quiz;
+    protected Sort sort;
 
     @BeforeClass
     public void beforeClass() {
@@ -52,6 +55,9 @@ public class BaseClass {
         geolocation = new Geolocation();
         wishList = new WishList();
         footer = new Footer();
+        profilePage = new ProfilePage();
+        quiz = new Quiz();
+        sort = new Sort();
 
         logger.info("*********************************************************************");
         logger.info("Running test case : " + m.getName().replace("_", " "));

@@ -23,8 +23,12 @@ public class HamburgerMenu {
 	By tattooMarkerArtistKit = By.xpath("//div[@class='mm-panel mm-panel_opened']//span[text()='Tattoo Marker']/../li/a[text()='Artist Kit']");
 	By tattooMarkerAccessories = By.xpath("//div[@class='mm-panel mm-panel_opened']//span[text()='Tattoo Marker']/../li/a[text()='Accessories']");
 
+	By customs = By.xpath("//li[contains(@class,'menu-L0 list-cols-odd thumbs-2 mm-listitem')]/a");
+
+
 	public void navigateToLoginSignUpPage() {
 		Utilities.click(hamburgerMenu);
+		Utilities.checkPageIsReady();
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -114,5 +118,23 @@ public class HamburgerMenu {
 			e.printStackTrace();
 		}
 		Utilities.javascriptClick(tattooMarkerAccessories);
+		Utilities.checkPageIsReady();
 	}
+
+	public void navigateToQuiz(){
+		Utilities.click(hamburgerMenu);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.click(tattooMarker);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Utilities.javascriptClick(tattooMarkerArtistKit);
+	}
+
 }

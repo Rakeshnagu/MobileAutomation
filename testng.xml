@@ -2,45 +2,91 @@
 
 <suite name="Inkbox Automation Suite" verbose="1">
 
-
-  <!--  <test name="CartTest">
-         <classes>
-             <class name="inkbox.testcase.CartTest">
-                 <methods>
-                     <include name="C4917_AddToCartVerifyingSubTotalTotalAndContinueToCheckout" />
-                 </methods>
-             </class>
-         </classes>
-     </test>-->
-
-   <!--
-    <test name="LoginAndSignupTest">
-            <classes>
-                <class name="inkbox.testcase.LoginAndSignupTest">
-                    <methods>
-                        <include name="C4960_LoginWithGoogle" />
-                    </methods>
-                </class>
-            </classes>
-        </test>
--->
-    <test name="CartTest">
+    <listeners>
+        <listener class-name="inkbox.wrapper.AllureListener" />
+    </listeners>
+    <!--
+            environment: stg, prod
+            geoLocation: AUD, USD, CAD,GBP, EUR
+    -->
+    <parameter name="environment" value="stg"></parameter>
+    <test name="FooterTest">
         <parameter name="geoLocation" value="AUD"></parameter>
         <classes>
-            <class name="inkbox.testcase.WishListTest">
+            <class name="inkbox.testcase.BrowseTest">
                 <methods>
-                    <include name="C5019_Verify_ItemAddedToFavourites_GuestUser" />
+                    <include name="C5078_SortByPriceLowToHigh" />
                 </methods>
             </class>
         </classes>
     </test>
 
 
-         <!--	<test name="LoginAndSignupTest">-->
-    <!--		<classes>-->
-    <!--			<class name="inkbox.testcase.LoginAndSignupTest" />-->
-    <!--		</classes>-->
-    <!--	</test>-->
+    <!--
+      <test name="WishListTest_AUD">
+             <parameter name="geoLocation" value="AUD"></parameter>
+           <classes>
+               <class name="inkbox.testcase.CartTest" />
+           </classes>
+       </test>
+      <test name="CartTest_AUD">
+           <parameter name="geoLocation" value="AUD"></parameter>
+           <classes>
+               <class name="inkbox.testcase.CartTest">
+                   <methods>
+                       <include name="T18406_AddingProductsToCartFromPdpPage" />
+                   </methods>
+               </class>
+           </classes>
+       </test>
+   -->
+    <!--
+       <test name="CartTest_USD">
+            <parameter name="geoLocation" value="USD"></parameter>
+            <classes>
+                <class name="inkbox.testcase.CartTest">
+                    <methods>
+                        <include name="T18406_AddingProductsToCartFromPdpPage" />
+                    </methods>
+                </class>
+            </classes>
+        </test>
+    -->
+
+
+
+
+    <!--
+     <test name="LoginAndSignupTest">
+             <classes>
+                 <class name="inkbox.testcase.LoginAndSignupTest">
+                     <methods>
+                         <include name="C4960_LoginWithGoogle" />
+                     </methods>
+                 </class>
+             </classes>
+         </test>
+ -->
+    <!--
+      <test name="CartTest">
+          <parameter name="geoLocation" value="AUD"></parameter>
+          <classes>
+              <class name="inkbox.testcase.WishListTest">
+                  <methods>
+                      <include name="C5019_Verify_ItemAddedToFavourites_GuestUser" />
+                  </methods>
+              </class>
+          </classes>
+      </test>
+
+  -->
+    <!--
+    <test name="LoginAndSignupTest">
+   <classes>
+           <class name="inkbox.testcase.LoginAndSignupTest" />
+       </classes>
+   </test>
+   -->
 
 
 </suite>

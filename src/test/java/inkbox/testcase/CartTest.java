@@ -14,7 +14,7 @@ public class CartTest extends BaseClass {
 
     String productName;
 
-    @Test(enabled = true, description = "Adding product to cart from product display page")
+    @Test(description = "Adding product to cart from product display page")
     public void C4913_AddingProductsToCartFromPdpPage() {
         menuPage.clickShopMenu();
         shopProductPage.clickFirstProduct();
@@ -26,8 +26,8 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Add free hand tattoo to cart from tattoo maker menu as a Guest user")
-    public void T18416_AddFreehandInkToCartAsGuestUser() {
+    @Test(description = "Add free hand tattoo to cart from tattoo maker menu as a Guest user")
+    public void C4926_AddFreehandInkToCartAsGuestUser() {
         menuPage.clickTattooMaker();
 
         tattooMaker.addProductToCart();
@@ -38,7 +38,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Validating payment method is displayed in cart ")
+    @Test(description = "Validating payment method is displayed in cart ")
     public void C4902_DisplayAvailablePaymentMethodsInCart() {
         menuPage = new MenuPage();
         shopProductPage = new ShopProductPage();
@@ -58,7 +58,7 @@ public class CartTest extends BaseClass {
         Assert.assertTrue(cartPage.checkAfterPayPaymentPaymentExist(), "After pay payment doesnt exist on cart");
     }
 
-    @Test(enabled = true, description = "Adding gift card to cart ")
+    @Test(description = "Adding gift card to cart ")
     public void C4928_AddGiftCardToCart() {
         hamburgerMenu = new HamburgerMenu();
         productDisplayPage = new ProductDisplayPage();
@@ -73,9 +73,9 @@ public class CartTest extends BaseClass {
 
     }
 
-    @Test(enabled = true, description = "Add free hand tattoo to cart from tattoo maker menu for logged in user")
+    @Test(description = "Add free hand tattoo to cart from tattoo maker menu for logged in user")
     public void C4925_AddFreehandInkToCartAsLoggedInUser() {
-            loginSignUpPage.loginToInkBox();
+        loginSignUpPage.loginToInkBox();
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
 
         menuPage.clickTattooMaker();
@@ -86,7 +86,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Add mystery bundles to cart as logged in user")
+    @Test(description = "Add mystery bundles to cart as logged in user")
     public void C4921_AddMysteryBundlesToCartForLoggedInUser() {
         loginSignUpPage.loginToInkBox();
         Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
@@ -106,7 +106,7 @@ public class CartTest extends BaseClass {
 
     }
 
-    @Test(enabled = true, description = "Add mystery bundles to cart as guest user")
+    @Test(description = "Add mystery bundles to cart as guest user")
     public void C4922_AddMysteryBundlesToCartVerifyProductAddedOrNotAsGuestUser() {
         hamburgerMenu.navigateToSalesMysteryBox();
         mysteryBundles.clickFirstProduct();
@@ -118,7 +118,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Verify bundle is getting added to cart as guest user")
+    @Test(description = "Verify bundle is getting added to cart as guest user")
     public void C4924_AddBundlesToCartVerifyProductAddedForGuestUser() {
         hamburgerMenu.navigateToSalesBundles();
         bundles.clickFirstProduct();
@@ -130,7 +130,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Add artist kit to cart as guest user")
+    @Test(description = "Add artist kit to cart as guest user")
     public void C5006_AddArtistKitToCartAsGuestUser() {
         hamburgerMenu.navigateToTattooMakerArtistKit();
 
@@ -142,7 +142,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Add accessories to cart as guest user")
+    @Test(description = "Add accessories to cart as guest user")
     public void C5008_AddAccessoriesToCartAsGuestUser() {
         hamburgerMenu.navigateToTattooMakerAccessories();
 
@@ -154,7 +154,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
     }
 
-    @Test(enabled = true, description = "Add accessories to cart as guest user")
+    @Test(description = "Add accessories to cart as guest user")
     public void C4998_0ItemWhenCartIsEmpty() {
         //Check is cart empty
         homePage.clickCartIcon();
@@ -180,7 +180,7 @@ public class CartTest extends BaseClass {
         Assert.assertEquals(cartPage.totalItemInCart(), 0, "total item in cart is not zero");
     }
 
-    @Test(enabled = true, description = "Add Giftcard to cart as logged in user")
+    @Test(description = "Add Giftcard to cart as logged in user")
     public void C4927_AddGiftcardToCartAsLoggedInUser() {
         homePage.clickCartIcon();
         cartPage.emptyCart();
@@ -195,7 +195,7 @@ public class CartTest extends BaseClass {
 
     }
 
-    @Test(enabled = true, description = "Verify cart is getting empty")
+    @Test(description = "Verify cart is getting empty")
     public void C4918_EmptyCart() {
         hamburgerMenu.navigateToGiftCardPage();
         productName = productDisplayPage.getProductName();
@@ -213,7 +213,7 @@ public class CartTest extends BaseClass {
         productName = "Freehand Tattoo Marker";
 
         Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
-        Assert.assertTrue(cartPage.getCartItemCount()>0, "Cart should not be  empty");
+        Assert.assertTrue(cartPage.getCartItemCount() > 0, "Cart should not be  empty");
 
         cartPage.emptyCart();
         Assert.assertEquals(cartPage.getCartItemCount(), 0, "Cart is not empty");
@@ -222,14 +222,14 @@ public class CartTest extends BaseClass {
     }
 
 
-    @Test(enabled = true, description = "Price validation")
+    @Test(description = "Price validation")
     public void C4914_PriceValidation() {
         String price;
         menuPage.clickShopMenu();
         price = shopProductPage.getFirstProductPrice();
         shopProductPage.clickFirstProduct();
 
-        Assert.assertEquals(productDisplayPage.getProductPrice(),price, "price of item not matching from shop page and product page");
+        Assert.assertEquals(productDisplayPage.getProductPrice(), price, "price of item not matching from shop page and product page");
 
         productDisplayPage.addProductToCart();
 
@@ -240,14 +240,14 @@ public class CartTest extends BaseClass {
 
     }
 
-    @Test(enabled = true, description = "verifying SubTotal,Total and Continue_To_Checkout visibility after product added to cart")
+    @Test(description = "verifying SubTotal,Total and Continue_To_Checkout visibility after product added to cart")
     public void C4917_AddToCartVerifyingSubTotalTotalAndContinueToCheckout() {
         String price;
         menuPage.clickShopMenu();
         price = shopProductPage.getFirstProductPrice();
         shopProductPage.clickFirstProduct();
 
-        Assert.assertEquals(productDisplayPage.getProductPrice(),price, "price of item not matching from shop page and product page");
+        Assert.assertEquals(productDisplayPage.getProductPrice(), price, "price of item not matching from shop page and product page");
 
         productDisplayPage.addProductToCart();
 
@@ -257,11 +257,11 @@ public class CartTest extends BaseClass {
 
         cartPage.clickContinueToCheckout();
 
-        Assert.assertTrue(Utilities.getCurrentUrl().contains("checkouts"),"After click on ContinueToCheckout button, it's redirecting to wrong page");
+        Assert.assertTrue(Utilities.getCurrentUrl().contains("checkouts"), "After click on ContinueToCheckout button, it's redirecting to wrong page");
 
     }
 
-    @Test(enabled = true, description = "Increment items in cart")
+    @Test(description = "Increment items in cart")
     public void C4993_IncrementItemsInCart() {
         menuPage.clickShopMenu();
         shopProductPage.clickFirstProduct();
@@ -272,16 +272,17 @@ public class CartTest extends BaseClass {
         cartPage.increaseProductCount();
         cartPage.increaseProductCount();
 
-        Assert.assertEquals(cartPage.totalItemInCart(),5,"product count has not increased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 5, "product count has not increased");
 
         cartPage.closeCart();
         menuPage.clickShopMenu();
         shopProductPage.clickProduct(1);
         productDisplayPage.addProductToCart();
-        Assert.assertEquals(cartPage.totalItemInCart(),6,"product count has not increased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 6, "product count has not increased");
 
     }
-    @Test(enabled = true, description = "Decrement items in cart")
+
+    @Test(description = "Decrement items in cart")
     public void C4994_DecrementItemsInCart() {
         menuPage.clickShopMenu();
         shopProductPage.clickFirstProduct();
@@ -292,35 +293,35 @@ public class CartTest extends BaseClass {
         cartPage.increaseProductCount();
         cartPage.increaseProductCount();
 
-        Assert.assertEquals(cartPage.totalItemInCart(),5,"product count has not increased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 5, "product count has not increased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),4,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 4, "product count has not decreased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),3,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 3, "product count has not decreased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),2,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 2, "product count has not decreased");
 
         cartPage.closeCart();
         menuPage.clickShopMenu();
         shopProductPage.clickProduct(1);
         productDisplayPage.addProductToCart();
-        Assert.assertEquals(cartPage.totalItemInCart(),3,"product count has not increased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 3, "product count has not increased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),2,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 2, "product count has not decreased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),1,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 1, "product count has not decreased");
 
         cartPage.decreaseProductCount();
-        Assert.assertEquals(cartPage.totalItemInCart(),0,"product count has not decreased");
+        Assert.assertEquals(cartPage.totalItemInCart(), 0, "product count has not decreased");
     }
 
-    @Test(enabled = true, description = "C4992 Add products to cart from wishlist")
-    public void C4992_AddProductsToCartFromWishlist(){
+    @Test(description = "C4992 Add products to cart from wishlist")
+    public void C4992_AddProductsToCartFromWishlist() {
 
         hamburgerMenu.navigateToLoginSignUpPage();
         loginSignUpPage.enterLoginCredential();
@@ -328,7 +329,7 @@ public class CartTest extends BaseClass {
 
         homePage.clickWishListIcon();
 
-        if(!wishList.checkProductExistInWistList()){
+        if (!wishList.checkProductExistInWistList()) {
             menuPage.clickShopMenu();
             shopProductPage.addProductToFavouritesList();
             homePage.clickWishListIcon();
@@ -344,4 +345,173 @@ public class CartTest extends BaseClass {
     }
 
 
+    @Test(description = "Add artist kit to cart as logged in user")
+    public void C5005_AddArtistKitToCartAsLoggedInUser() {
+        hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.enterLoginCredential();
+
+        homePage.clickCartIcon();
+        cartPage.emptyCart();
+        cartPage.closeCart();
+
+        hamburgerMenu.navigateToTattooMakerArtistKit();
+
+        tattooMaker.addProductToCart();
+        productName = "Freehand Tattoo Marker";
+
+        Assert.assertEquals(cartPage.getProductName(), productName,
+                "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+    }
+
+    @Test(description = "Add accessories to cart as logged in user")
+    public void C5007_AddAccessoriesToCartAsLoggedInUser() {
+        hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.enterLoginCredential();
+
+        homePage.clickCartIcon();
+        cartPage.emptyCart();
+        cartPage.closeCart();
+
+        hamburgerMenu.navigateToTattooMakerAccessories();
+
+        tattooMaker.clickTracingPenProduct();
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+    }
+
+    @Test(description = "Remove items from cart")
+    public void C4931_RemoveItemsFromCart() {
+
+        //Adding item to cart and removing item from cart
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+        cartPage.emptyCart();
+
+        //Check is cart empty after removing product
+        Assert.assertTrue(cartPage.checkYouHaveNoItemsInYourCartTextPresent(), "You have no items in your cart not coming in cart");
+        Assert.assertEquals(cartPage.totalItemInCart(), 0, "total item in cart is not zero");
+
+
+    }
+
+    @Test(description = "Add Items To cart")
+    public void C4934_AddItemsToCart() {
+
+        //Adding item to cart and removing item from cart
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+        cartPage.closeCart();
+
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+    }
+
+    @Test(description = "Add Items To Cart without Login and Validate After Login")
+    public void C4933_AddItemsToCart_without_Login_and_ValidateAfterLogin() {
+
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+
+        productName = productDisplayPage.getProductName();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+        cartPage.closeCart();
+
+        hamburgerMenu.navigateToLoginSignUpPage();
+        loginSignUpPage.enterLoginCredential();
+
+        Assert.assertTrue(homePage.checkLoginSuccessfully(), "Login was not successful");
+
+        homePage.clickCartIcon();
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+    }
+
+
+    @Test(description = "Validate product name, price, size & actual price with PDP")
+    public void C5015_ValidateProduct_NamePriceSze() {
+
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+
+        productName = productDisplayPage.getProductName();
+        String price = productDisplayPage.getProductPrice();
+
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(productDisplayPage.getProductPrice(), price, "price of item not matching from shop page and product page");
+        Assert.assertEquals(cartPage.getProductName(), productName, "Product name on product display page is not matching with cart");
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+
+    }
+
+    @Test(description = "Quantity chosen in PDP must match the no. of items in cart for that product")
+    public void C5010_QuantityChosenInPDPMustMatchTheNoOfItemsInCart() {
+
+        menuPage.clickShopMenu();
+        shopProductPage.clickFirstProduct();
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getCartItemCount(), 1, "Number of item in cart expected is 1");
+
+        cartPage.closeCart();
+
+        Utilities.navigateBack();
+
+        shopProductPage.clickProduct(2);
+        productDisplayPage.addProductToCart();
+
+        Assert.assertEquals(cartPage.getCartItemCount(), 2, "Number of item in cart expected is 1");
+    }
+
+    @Test(description = "Verify discount meter is displayed and appropriate discounts are displayed")
+    public void C4996_VerifyDiscountMeterIsDisplayedAndAppropriateDiscountsAreDisplayed() {
+        DriverManager.getWebdriver().get(Utilities.readPropertyFile("url")+"/products/all-tattoos");
+
+        shopProductPage.clickProduct(1);
+        productDisplayPage.addProductToCart();
+
+
+    }
+
+
+    @Test(description = "Confirm tattoo size is the same in cart & pdp")
+    public void C5081_ConfirmTattooSizeIsSameInCartPDP() {
+        DriverManager.getWebdriver().get(Utilities.readPropertyFile("url")+"/products/all-tattoos?size=1_x_1_in");
+        shopProductPage.clickProduct(0);
+
+        String size = productDisplayPage.getProductSize();
+        productDisplayPage.addProductToCart();
+        Utilities.checkPageIsReady();
+        System.out.println(size);
+        System.out.println(cartPage.getProductSize());
+        Assert.assertTrue(cartPage.getProductSize().trim().replace(" ","").contains(size.trim().replace(" ","")));
+
+    }
 }

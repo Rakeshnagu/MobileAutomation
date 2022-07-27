@@ -35,9 +35,34 @@ public class Footer {
     By moreQuestion = By.xpath("//a[@class='underline']/..");
     By faqQuestion = By.xpath("//div[contains(@class,'faq-container')]//div[contains(@class,'faq-question faq-key-')]");
 
+    By tracking = By.xpath("//a[normalize-space()='Tracking']");
+    By contactUs = By.xpath("//a[contains(text(),'Contact Us')]");
+    By frequentlyAskedQuestions = By.xpath("//h3[normalize-space()='Frequently Asked Questions']");
+
 
     public boolean checkPrivacyPolicyExist() {
         return Utilities.elementExist(privacyPolicy);
+    }
+
+    public boolean checkFrequentlyAskedQuestionsExist() {
+        return Utilities.elementExist(frequentlyAskedQuestions);
+    }
+
+    public boolean checkTrackingExist() {
+        return Utilities.elementExist(tracking);
+    }
+
+    public boolean checkContactUsExist() {return Utilities.elementExist(contactUs);}
+    public boolean validateTracking() {
+        Utilities.ScrollDown();
+        Utilities.click(tracking);
+        return Utilities.getCurrentUrl().contains("/tracking")?true:false;
+    }
+
+    public boolean validateContactUs() {
+        Utilities.ScrollDown();
+        Utilities.click(contactUs);
+        return true;//Utilities.getCurrentUrl().contains("/tracking")?true:false;
     }
 
     public boolean checkTermsOfServiceExist() {
@@ -283,7 +308,7 @@ public class Footer {
     }
 
     public void checkMoreQuestionExist(){
-        Assert.assertTrue(Utilities.elementExist(moreQuestion),"More Question doesnt exist");
+        Assert.assertTrue(Utilities.elementExist(moreQuestion),"More Question doesn't exist");
     }
 
     public void navigateToHelpAndFaq(){
